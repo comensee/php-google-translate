@@ -1,0 +1,17 @@
+{
+    "name": "comensee/php-google-translate",
+    "description": "Php Fork of the ruby google translate class",
+    "authors": [
+        {
+            "name": "Alain Bangoula",
+            "email": "alain@come-n-see.fr"
+        }
+    ],
+    "autoload": {
+        "psr-0": { "Google": "lib/" }
+    },
+    "minimum-stability": "dev",
+    "require": {
+        "guzzle/guzzle": "~3.7"
+    }
+}
