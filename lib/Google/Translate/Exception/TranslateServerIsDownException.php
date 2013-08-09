@@ -2,7 +2,7 @@
 
 namespace Google\Translate\Exception;
 
-class TranslateServerIsDownException
+class TranslateServerIsDownException extends \Exception
 
 {
 

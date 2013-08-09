@@ -2,7 +2,7 @@
 
 namespace Google\Translate\Exception;
 
-class MissingToLanguageException
+class MissingToLanguageException extends \Exception
 
 {
 
