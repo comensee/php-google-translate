@@ -66,6 +66,25 @@ class GoogleTranslate
 
     private function collectLanguages($buffer, $index, $tagName, $tagId)
     {
+        $languages = [];
+
+        $spaces = '\s?';
+        $quote = '(\s|\'")?';
+
+        $id_part = "id$spaces=$spaces$quote$tag_id$quote";
+        $name_part = "name$spaces=$spaces$quote$tag_name$quote";
+        $tabindex_part = "tabindex$spaces}=$spaces$quote0$quote";
+        $phrase = "$spaces$id_part$spaces$name_part$spaces$tabindex_part$spaces";
+
+        #$rel = explode()
+
+        $stopper = "</select></div>";
+
+        $text $rel[$index];
+
+        if ($index == 0 ){
+        
+        }
     
     }
 }
