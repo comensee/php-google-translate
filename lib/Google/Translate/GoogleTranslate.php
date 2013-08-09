@@ -15,8 +15,26 @@ class GoogleTranslate
 {
     private $googleTranslateServiceUrl = "http://translate.google.com";
 
+    private $options = [
+                "client"=> "t",
+                "sl" => "auto",
+                "multires"=> 1,
+                "prev"=>"btn",
+                "ssel"=>0,
+                "tsel"=> 4,
+                "sc" => 1,
+                "oe"=> "UTF-8",
+                "ie"=>"UTF-8",
+                "otf"=>1,
+                "pc" => 1,
+    ];
 
-    public function translate ($from, $to, $from_text, $options = [])
+    public function __construct($config = []){
+        $this->options = array_replace($this->options, $config);
+    }
+
+
+    public function translate ($from, $to, $from_text)
     {   
         if(!$from){
             throw new MissingFromLanguageException();
@@ -28,7 +46,7 @@ class GoogleTranslate
             throw new MissingTextLanguageException();
         }
         $from_text = urlencode($from_text);
-        $url = $this->googleTranslateServiceUrl . "/translate_a/t?client=t&text=$from_text&hl=$from&sl=auto&tl=$to&multires=1&prev=btn&ssel=0&tsel=4&uptl=$to&alttl=$from&sc=1&oe=UTF-8&ie=UTF-8&otf=1&pc=1";
+        $url = $this->googleTranslateServiceUrl . "/translate_a/t?".http_build_query($this->options)."&text=$from_text&hl=$from&tl=$to&uptl=$to&alttl=$from";
         
             $stream = new Stream(fopen($url, 'r'));
             $content = $stream;
