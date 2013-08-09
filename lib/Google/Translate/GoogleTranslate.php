@@ -80,7 +80,7 @@ class GoogleTranslate
 
         $stopper = "</select></div>";
 
-        $text $rel[$index];
+        $text  = $rel[$index];
 
         if ($index == 0 ){
         
