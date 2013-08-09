@@ -64,7 +64,7 @@ class GoogleTranslate
 
             $result = implode(",", $new_tab);
             $result = json_decode($result, true) ;
-            if(!$result || $result ==""){
+            if(!is_array($result) && count($result) == 0 ){
                 throw new TranslateServerIsDownException();
             }
             $stream->close();
